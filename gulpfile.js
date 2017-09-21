@@ -1,3 +1,6 @@
+var fs = require('fs');
+var packageJson = JSON.parse(fs.readFileSync('./package.json'));
+
 const gulp = require("gulp");
 const { parallel } = require("gulp");
 const sass = require('gulp-sass');
@@ -15,6 +18,9 @@ function build() {
     )
     .pipe(autoprefixer())
     .pipe(csscomb())
+    .pipe(rename({
+      suffix: '-' + packageJson.version
+    }))
     .pipe(gulp.dest('./dist'))
     .pipe(cleancss())
     .pipe(rename({

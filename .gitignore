@@ -8,3 +8,7 @@ package-lock.json
 !.gitattributes
 !.hound.yml
 !.scss-lint.yml
+dist/spectre-*
+dist/spectre-exp-*
+dist/spectre-icons-*
+
